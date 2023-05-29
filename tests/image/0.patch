@@ -1,0 +1,6 @@
+18a19,23
+> 		<name>ranger.pam.authentication.enabled</name>
+> 		<value>true</value>
+> 		<description />
+> 	</property>
+> 	<property>

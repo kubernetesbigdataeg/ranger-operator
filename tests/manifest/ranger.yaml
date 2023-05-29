@@ -36,7 +36,7 @@ spec:
     spec:
       restartPolicy: Always
       containers:
-      - image: jucaf/ranger:3.0.0-SNAPSHOT-190522
+      - image: docker.io/kubernetesbigdataeg/ranger:2.4.0-1
         imagePullPolicy: Always
         name: ranger
         ports:
@@ -45,12 +45,14 @@ spec:
         - containerPort: 6182
           protocol: TCP
         env:
+          - name: DB_FLAVOR
+            value: "POSTGRES"
           - name: DB_HOST
-            value: "postgresql-0.postgresql-svc.kudu.svc.cluster.local"
+            value: "postgres-sample-0.postgres-svc.default.svc.cluster.local"
           - name: DB_PORT
-            value: "3306"
+            value: "5432"
           - name: SOLR_HOST
-            value: "solr-0.solrcluster.default.svc.cluster.local,solr-1.solrcluster.default.svc.cluster.local"
+            value: "solr-sample-0.solrcluster.default.svc.cluster.local,solr-sample-1.solrcluster.default.svc.cluster.local"
           - name: SOLR_PORT
             value: "8983"
           - name: SOLR_USER
@@ -59,4 +61,6 @@ spec:
             value: "solr"            
           - name: ZOOKEEPERS
             value: "zk-0.zk-hs.default.svc.cluster.local:2181,zk-1.zk-hs.default.svc.cluster.local:2181,zk-2.zk-hs.default.svc.cluster.local:2181"
+          - name: RANGER_ADMIN_LOGBACK_CONF_FILE
+            value: "/ranger/ranger-admin/ews/webapp/WEB-INF/classes/conf/logback.xml"
 
