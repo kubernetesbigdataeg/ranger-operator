@@ -61,6 +61,4 @@ spec:
             value: "solr"            
           - name: ZOOKEEPERS
             value: "zk-0.zk-hs.default.svc.cluster.local:2181,zk-1.zk-hs.default.svc.cluster.local:2181,zk-2.zk-hs.default.svc.cluster.local:2181"
-          - name: RANGER_ADMIN_LOGBACK_CONF_FILE
-            value: "/ranger/ranger-admin/ews/webapp/WEB-INF/classes/conf/logback.xml"
 
