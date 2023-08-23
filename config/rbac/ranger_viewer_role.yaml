@@ -1,0 +1,27 @@
+# permissions for end users to view rangers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: ranger-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: ranger-operator
+    app.kubernetes.io/part-of: ranger-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: ranger-viewer-role
+rules:
+- apiGroups:
+  - bigdata.kubernetesbigdataeg.org
+  resources:
+  - rangers
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - bigdata.kubernetesbigdataeg.org
+  resources:
+  - rangers/status
+  verbs:
+  - get
